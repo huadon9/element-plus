@@ -49,6 +49,8 @@ import {
   useFormSize,
 } from '@element-plus/components/form'
 
+import { Search } from '@element-plus/icons-vue'
+
 import type ElTooltip from '@element-plus/components/tooltip'
 import type { ISelectProps, SelectOptionProxy } from './token'
 
@@ -155,6 +157,10 @@ export const useSelect = (props: ISelectProps, emit) => {
   )
   const iconReverse = computed(() =>
     nsSelect.is('reverse', iconComponent.value && expanded.value)
+  )
+
+  const iconFilterComponent = computed(() =>
+    expanded.value ? Search : props.suffixIcon
   )
 
   const validateState = computed(() => formItem?.validateState || '')
@@ -831,6 +837,7 @@ export const useSelect = (props: ISelectProps, emit) => {
     showClose,
     iconComponent,
     iconReverse,
+    iconFilterComponent,
     validateState,
     validateIcon,
     showNewOption,

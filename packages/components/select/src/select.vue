@@ -209,10 +209,16 @@
           </div>
           <div ref="suffixRef" :class="nsSelect.e('suffix')">
             <el-icon
-              v-if="iconComponent && !showClose"
+              v-if="iconComponent && !showClose && !filterable"
               :class="[nsSelect.e('caret'), nsSelect.e('icon'), iconReverse]"
             >
               <component :is="iconComponent" />
+            </el-icon>
+            <el-icon
+              v-if="iconComponent && !showClose && filterable"
+              :class="[nsSelect.e('caret'), nsSelect.e('icon')]"
+            >
+              <component :is="iconFilterComponent" />
             </el-icon>
             <el-icon
               v-if="showClose && clearIcon"
