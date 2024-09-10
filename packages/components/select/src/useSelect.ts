@@ -595,6 +595,10 @@ export const useSelect = (props: ISelectProps, emit) => {
     })
   }
 
+  const handleOptionScrollBottom = () => {
+    emit('reach-bottom')
+  }
+
   const getValueIndex = (arr: any[] = [], value) => {
     if (!isObject(value)) return arr.indexOf(value)
 
@@ -829,6 +833,7 @@ export const useSelect = (props: ISelectProps, emit) => {
     deleteTag,
     deleteSelected,
     handleOptionSelect,
+    handleOptionScrollBottom,
     scrollToOption,
     hasModelValue,
     shouldShowPlaceholder,

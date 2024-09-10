@@ -260,6 +260,7 @@
             role="listbox"
             :aria-label="ariaLabel"
             aria-orientation="vertical"
+            @reach-bottom="handleOptionScrollBottom"
           >
             <el-option
               v-if="showNewOption"
@@ -338,6 +339,7 @@ export default defineComponent({
     'visible-change',
     'focus',
     'blur',
+    'reach-bottom',
   ],
 
   setup(props, { emit }) {

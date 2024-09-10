@@ -91,6 +91,13 @@ const handleScroll = () => {
     wrapScrollTop = wrapRef.value.scrollTop
     wrapScrollLeft = wrapRef.value.scrollLeft
 
+    if (
+      wrapRef.value?.offsetHeight + wrapRef.value.scrollTop ===
+      resizeRef.value?.offsetHeight
+    ) {
+      emit('reachBottom')
+    }
+
     emit('scroll', {
       scrollTop: wrapRef.value.scrollTop,
       scrollLeft: wrapRef.value.scrollLeft,

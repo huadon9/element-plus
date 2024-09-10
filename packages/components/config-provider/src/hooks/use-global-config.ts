@@ -57,7 +57,7 @@ export function useGlobalComponentSettings(
     computed(() => config.value?.namespace || defaultNamespace)
   )
 
-  const locale = useLocale(computed(() => config.value?.locale))
+  const locale = useLocale(computed(() => unref(config)?.locale))
   const zIndex = useZIndex(
     computed(() => config.value?.zIndex || defaultInitialZIndex)
   )
